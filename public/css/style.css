@@ -1,0 +1,272 @@
+/**
+ * main stylesheet
+ * @author Tinty
+ * @version 1.0
+ */
+/**
+ * whole
+ */
+* {
+		margin:0 auto;
+		padding:0 auto;
+}
+body {
+		font-family:'microsoft YaHei';
+}
+.clear-both {
+		clear:both;
+}
+/**
+ * container-fluid col-sm-2
+ */
+.container-fluid,.col-sm-2,.col-sm-4,.col-sm-10,.col-sm-1,.col-sm-11 {
+		padding:0;
+}
+/**
+ * home 登录页
+ */
+.background-home {
+		background:#000;
+}
+.background-home .container {
+		color:#fff;
+		text-align:center;
+		padding-top:12%;
+}
+
+/**
+ * loding
+ */
+#loding {
+		background:#000;
+		position:fixed;
+		top:0;
+		width:100%;
+		height:100%;
+		text-align:center;
+		z-index:997;
+}
+#loding img {
+		margin-top:25%;
+}
+/**
+ * nav
+ */
+nav {
+		background:none !important;
+		padding:10px 0;
+		transition:all .3s;
+}
+nav .container-fluid {
+		padding:0 80px !important;
+}
+.nav-abel {
+		background:#000 !important;
+}
+
+.navbar-brand img {
+		height:40px;
+		width:auto;
+		margin-top:-10px;
+}
+.dropdown-menu {
+		width:240px;
+		background:#000 !important;
+}
+.dropdown-menu li {
+		float:left;
+		margin-right:2%:
+}
+/**
+ * carouel
+ */
+.item {
+		width:100%;
+		height:400px;
+		overflow:hidden;
+}
+.item img {
+		width:100%;
+}
+/**
+ * background
+ */
+.background-index {
+		background:url('../image/bg1.jpg') no-repeat;
+		background-attachment:fixed;
+		background-size:cover;
+}
+.background-index .container {
+		color:#fff;
+		text-align:center;
+		padding-top:12%;
+}
+@media screen and (min-width:1440px) {
+		.background-index {
+				min-height:700px;
+		}
+}
+@media screen and (max-width:1440px) {
+		.background-index {
+				min-height:400px;
+		}
+}
+.background-normal {
+		background:url('../image/bg1.jpg') no-repeat;
+		background-attachment:fixed;
+		background-size:cover;
+}
+@media screen and (min-width:1440px) {
+		.background-normal {
+				min-height:350px;
+		}
+}
+@media screen and (max-width:1440px) {
+		.background-normal {
+				min-height:150px;
+		}
+}
+/**
+ * article figure
+ */
+.index .baker figure {
+		background:#000;
+}
+.index .baker img {
+		width:100%;
+		position:relative;
+		z-index:10;
+}
+.index .baker figure:hover img {
+		transform:translateY(-75px);
+		transition:transform .5s;
+		cursor:pointer;
+}
+.index .baker figcaption {
+		color:#fff;
+		position:absolute;
+		bottom:0;
+		z-index:2;
+}
+.index .baker figcaption {
+		width:100%;
+}
+.index .baker figcaption span {
+		float:left;
+}
+.index .baker figcaption .add-cart {
+		font-size:24px;
+		float:right;
+		line-height:20px;
+}
+.index .baker .col-sm-4 {
+		max-height:624px;
+}
+.background-sm {
+		background:url('../image/bg1.jpg') no-repeat;
+		background-attachment:fixed;
+		background-size:cover;
+		padding-bottom:2%;
+}
+.index .abel img {
+		width:100%;
+		position:relative;
+}
+.index .abel figcaption {
+		color:#fff;
+		position:absolute;
+		bottom:15px;
+		background:#000;
+		opacity:.9;
+		margin-right:15px;
+		padding:2px;
+}
+.index .abel .col-sm-3 {
+		padding:15px 15px;
+}
+.media img {
+		width:140px;
+		height:140px;
+}
+.media span {
+		font-size:14px;
+}
+.index .charlie {
+		margin-bottom:5%;
+}
+.cart {
+		font-size:30px;
+		position:fixed;
+		right:5%;
+		bottom:10%;
+		z-index:999;
+}
+footer {
+		background:#f8f8f8;
+}
+footer a:link {
+		font-size:14px;
+}
+footer .container {
+		padding:1% 0;
+}
+footer .container .baker {
+		font-size:18px;
+		color:#fff;
+		margin-top:2%;
+}
+footer .container .baker ul {
+		list-style:none;
+}
+footer .container .charlie figure{
+		margin-right:2%;
+		float:left;
+}
+footer .container .charlie figure img {
+		width:140px;
+		height:140px;
+}
+/**
+ * menu
+ */
+.menu .abel {
+		margin-bottom:2%;
+}
+.top-bar {
+		height:75px;
+		margin-top:2%;
+}
+.menu .input-group[class*=col-] {
+		padding-right:15px;
+		padding-left:15px;
+}
+.top-bar .breadcrumb {
+		background:#fff;
+}
+.menu .form-control {
+		border-radius:0;
+}
+.menu figure {
+		margin:2% 0;
+		overflow:hidden;
+}
+.menu figure img {
+		width:100%;
+		height:auto;
+}
+.menu .add-cart {
+		float:right;
+}
+.menu .description {
+		font-size:12px;
+}
+/**
+ * single
+ */
+.single img {
+		width:100%;
+		height:auto;
+}
+.single .col-md-3 {
+		margin-bottom:1%;
+}
