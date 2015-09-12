@@ -49,6 +49,16 @@ $(document).ready(function(){
 						$('nav').append(data);
 				}
 		})
+		/**
+		 * get cart
+		 */
+		$.ajax({
+				url:'/cart',
+				type:'GET',
+				success:function(data){
+						$('.shopping-cart').append(data);
+				}
+		})
 })
 /**
  * 购物车动画 右下角
@@ -79,10 +89,131 @@ $(document).on('click','#add-cart',function(){
  * 购物车动画 左下角
  */
 $(document).on('click','#add-cart',function(){
-//		var foodId=$(this).attr('val');
-		$(this).parents('figure').append('<img id=\'food\' src=\'image/logo_circle.png\' />');
+		var foodId=$(this).attr('foodId');
+		var foodName=$(this).attr('foodName');
+		var foodPrice=parseFloat($(this).attr('foodPrice'));
+		var foodAvatar=$(this).attr('foodAvatar');
+		var price=parseFloat($('#checkout span').text());
+		var d=new Date();
+		var cartId=d.getFullYear().toString()+d.getMonth().toString()+d.getDate().toString()+d.getHours().toString()+d.getMinutes().toString();
+		var userId=$('span#userId').text();
+		console.log(cartId);
+		var content='';
+		content+='<li id=\'food'+foodId+'\'>';
+		content+='<div class=\'col-sm-8\'>';
+		content+='<a href=\'javascript:deleteFood('+foodId+','+foodPrice+')\'><span class=\'fui-cross\'>&nbsp</span></a>';
+		content+=foodName;
+		content+='</div>';
+		content+='<div class=\'col-sm-4\'>';
+		content+='<a href=\'javascript:removeFood('+foodId+','+foodPrice+')\'><span class=\'glyphicon glyphicon-minus\'></span></a>&nbsp<span id=\'foodAmount'+foodId+'\' >1</span>&nbsp<a href=\'javascript:addFood('+foodId+','+foodPrice+')\'><span class=\'glyphicon glyphicon-plus\'></span></a>';
+		content+='</div>';
+		content+='</li>';
+		price=(foodPrice+price).toFixed(2);
+		$('#food'+foodId).append('<img id=\'food\' src=\''+foodAvatar+'\' />');
 		var left=$('.shopping-cart').offset().left;//获取添加按钮与购物车图标之间的宽度
-		var top=-($('#add-cart').offset().top-$('nav').offset().top);
+		var top=$(this).offset().top-$('nav').offset().top;
+		$('#food').css({'width':'180px','height':'180px','-webkit-border-radius':'50%','z-index':'9998','display':'inline'});
+		$('#food').animate({
+				left:left,
+				top:-top-50,
+				height:'20px',
+				width:'20px'
+		},
+		1000,
+		function(){
+				$('#food').remove();
+				$('#shopping-cart').append(content);
+				$('#checkout span').text(price);
+		}
+		);
+		setCartCookie();
+		return false;
+})
+function deleteFood(id,price){
+		var nowPrice=parseFloat($('#checkout span').text());
+		console.log(id);
+		price=nowPrice-parseFloat(price);
+		console.log(nowPrice+'---'+price);
+		$('li#food'+id).remove();
+		console.log('#food'+id);
+		$('#checkout span').text(price.toFixed(2));
+		setCartCookie();
+		return false;
+}
+/**
+function addFood(id,price){
+		var nowPrice=parseFloat($('#checkout span').text());
+		price=nowPrice+parseFloat(price);
+		var amount=parseFloat($('span#foodAmount'+id).text());
+		amount+=1;
+		console.log(amount);
+		$('span#foodAmount'+id).text(amount);
+		$('#checkout span').text(price.toFixed(2));
+		setCartCookie();
+		return false;
+}
+function removeFood(id,price){
+		var nowPrice=parseFloat($('#checkout span').text());
+		console.log(id);
+		price=nowPrice-parseFloat(price);
+		console.log(nowPrice+'---'+price);
+		var amount=parseFloat($('span#foodAmount'+id).text());
+		amount-=1;
+		if(amount==0){
+				deleteFood(id,price);
+		}else{
+				$('span#foodAmount'+id).text(amount);
+				console.log('#food'+id);
+		}
+		$('#checkout span').text(price.toFixed(2));
+		setCartCookie();
+		return false;
+}
+/**/
+/**
+ * checkout
+ */
+function checkout()
+{
+		var price=parseFloat($('#checkout span').text()).toFixed(2);
+		var food='';
+		$('#shopping-cart li div').each(function(){
+				food+=','+$(this).text();
+		});
+		$.ajax({
+				url:'/checkout',
+				type:'GET',
+				data:{"food":food},
+				success:function(data){
+						if(data!=1){
+								alert('error');
+						}
+				}
+		})
+
+}
+/**
+ * store cart to cookie and mysql
+ */
+function setCartCookie(){
+		var parastr=$('.shopping-cart').html();
+		$.ajax({
+				url:'/setCartCookie',
+				type:'POST',
+				data:{"cart":parastr},
+				success:function(data){
+						if(data!=1){
+								alert('error');
+						}
+				}
+		})
+
+}
+
+/**function addCart(name,id,avatar){
+		$(this).parents('figure').append('<img id=\'food\' src=\''+avatar+'\' />');
+		var left=$('.shopping-cart').offset().left;//获取添加按钮与购物车图标之间的宽度
+		var top=-($(this).offset().top-$('nav').offset().top);
 		console.log('cartleft:'+$('#cart').offset().left);
 		console.log('carttop:'+$('#cart').offset().top);
 		console.log('addleft:'+$(this).parents('figure').offset().left);
@@ -97,7 +228,9 @@ $(document).on('click','#add-cart',function(){
 				width:'20px'
 		},2000,function(){$('#food').remove()});
 		return false;
-})
+
+}
+**/
 
 /**
  *

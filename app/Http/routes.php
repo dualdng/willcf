@@ -20,11 +20,23 @@ Route::get('/home', function () {
 /**
  * get menu 
  */
-Route::get('/menu','Home\MainController@getMenu');
+Route::get('/menu/{category}','Home\MainController@getMenu');
 /**
  * get single
  */
 Route::get('/single/{id}','Home\MainController@getSingle');
+/**
+ * get shopping cart
+ */
+Route::get('cart','Home\MainController@getCart');
+/**
+ * store cart cookie
+ */
+Route::post('setCartCookie','Home\MainController@setCartCookie');
+/**
+ * checkout
+ */
+Route::get('checkout','Home\MainController@getCheckout');
 /**
  * get navbar
  */

@@ -34,8 +34,9 @@
 						<img src='<?php echo $value->avatar;?>'/>
 						<figcaption>
 						<span><?php echo $value->name;?></span>
-						<a id='add-cart' val='<?php echo $value->id;?>' href='#'><span class='add-cart fui-plus'>&nbsp&nbsp&nbsp</span></a>
+						<a id='add-cart' foodId='<?php echo $value->id;?>' foodName='<?php echo $value->name;?>' foodPrice='<?php echo $value->price*$value->discount;?>' foodAvatar='<?php echo $value->avatar;?>' href='#'><span class='add-cart fui-plus'>&nbsp&nbsp&nbsp</span></a>
 						</figcaption>
+<div id='food<?php echo $value->id;?>'></div>
 				</figure>
 				<?php }?>
 		</section>
@@ -47,8 +48,9 @@
 						<figcaption>
 						<span><?php echo $baker[0]->name;?></span><br />
 						<span>这是一段测试文字</span>
-						<a id='add-cart' val='<?php echo $baker[0]->id;?>' href='#'><span class='add-cart fui-plus'>&nbsp&nbsp&nbsp</span></a>
+						<a id='add-cart' foodId='<?php echo $baker[0]->id;?>' foodName='<?php echo $baker[0]->name;?>' foodPrice='<?php echo $baker[0]->price;?>' foodAvatar='<?php echo $baker[0]->avatar;?>' href='#'><span class='add-cart fui-plus'>&nbsp&nbsp&nbsp</span></a>
 						</figcaption>
+<div id='food<?php echo $baker[0]->id;?>'></div>
 				</figure>
 				<?php
 				/**
@@ -62,8 +64,9 @@
 						<figcaption>
 						<span><?php echo $value->name;?></span><br />
 						<span>这是一段测试文字</span>
-						<a id='add-cart' val='<?php echo $value->id;?>' href='#'><span class='add-cart fui-plus'>&nbsp&nbsp&nbsp</span></a>
+						<a id='add-cart' foodId='<?php echo $value->id;?>' foodName='<?php echo $value->name;?>' foodPrice='<?php echo $value->price;?>' foodAvatar='<?php echo $value->avatar;?>' href='#'><span class='add-cart fui-plus'>&nbsp&nbsp&nbsp</span></a>
 						</figcaption>
+<div id='food<?php echo $value->id;?>'></div>
 				</figure>
 				<?php }?>
 				<?php }?>
@@ -90,7 +93,7 @@
 										<div class="media-body">
 												<h6 class="media-heading"><?php echo $charlie[$i]->name;?></h6>
 												<span><?php echo $charlie[$i]->detail;?></span>
-						<a id='add-cart' val='<?php echo $value->id;?>' href='#'><span class='add-cart fui-plus'>&nbsp&nbsp&nbsp</span></a>
+						<a id='add-cart' foodId='<?php echo $value->id;?>' foodName='<?php echo $value->name;?>' foodPrice='<?php echo $value->price;?>' foodAvatar='<?php echo $value->avatar;?>' href='#'><span class='add-cart fui-plus'>&nbsp&nbsp&nbsp</span></a>
 										</div>
 								</div>
 								<?php }?>
@@ -106,7 +109,7 @@
 										<div class="media-body">
 												<h6 class="media-heading"><?php echo $charlie[$i]->name;?></h6>
 												<span><?php echo $charlie[$i]->detail;?></span>
-						<a id='add-cart' val='<?php echo $value->id;?>' href='#'><span class='add-cart fui-plus'>&nbsp&nbsp&nbsp</span></a>
+						<a id='add-cart' foodId='<?php echo $value->id;?>' foodName='<?php echo $value->name;?>' foodPrice='<?php echo $value->price;?>' foodAvatar='<?php echo $value->avatar;?>' href='#'><span class='add-cart fui-plus'>&nbsp&nbsp&nbsp</span></a>
 										</div>
 								</div>
 								<?php }?>

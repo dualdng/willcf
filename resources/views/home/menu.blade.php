@@ -27,19 +27,19 @@
 								<span class='input-group-btn'><button class='btn btn-primary' type='button'><span class='fui-search'></span></button></span>
 						</div>
 				</div>
-				<?php for($i=0;$i<=9;$i++){?>
+<?php foreach($food as $key=>$value){?>
 				<div class='col-md-3'>
 						<figure>
-								<img src='testpic/1.jpg' />
+						<img src='<?php echo $value->avatar;?>' />
 								<figcaption>
 								<div class='col-sm-8'>
-								<span>红烧排骨</span>
+								<span><?php echo $value->name;?></span>
 								</div>
 								<div class='col-sm-4 text-right'>
 										<a  href='#'><span class='fui-heart' data-toggle='tooltip' data-placement='left' title='收藏'></span></a>&nbsp
 										<a id='add-cart' val='11' href='#'><span class='add-cart fui-plus' data-toggle='tooltip' data-placement='left' title='加入购物车'></span></a>
 								</div>
-								<span class='description'>排骨：300克；糖：20克；酱油：50ml</span>
+								<span class='description'><?php echo $value->detail;?></span>
 								</figcaption>
 						</figure>
 				</div>

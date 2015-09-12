@@ -71,7 +71,7 @@
 				<?php }else{?>
 				<li><a href="<?php $_SERVER['SERVER_NAME']?>/auth/login">登录</a></li>
 				<?php }?>
-				<li><a id='cart' href="javascript:void(0)" onclick='cart()' value='0'>购物车&nbsp<span>78.00元</span></a></li>
+				<li><a id='cart' href="javascript:void(0)" onclick='cart()' value='0'>购物车&nbsp</a></li>
 		</ul>
 </div><!-- /.navbar-collapse -->
 </div><!-- /.container-fluid -->

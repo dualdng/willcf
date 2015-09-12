@@ -36,58 +36,6 @@
 						@yield('article')
 				</article>
 				<div class='shopping-cart'>
-						<div class='abel'>
-								<h6 class='text-center'>已点菜品</h6>
-								<ul>
-										<li>
-												<div class='col-sm-8'>
-														<a href='#'><span class='fui-cross'>&nbsp</span></a>
-														Cras justo odio
-												</div>
-												<div class='col-sm-4'>
-														<a href='#'><span class='glyphicon glyphicon-minus'></span></a>&nbsp10&nbsp<a href='#'><span class='glyphicon glyphicon-plus'></span></a>
-												</div>
-										</li>
-										<li>
-												<div class='col-sm-8'>
-														<a href='#'><span class='fui-cross'>&nbsp</span></a>
-														Cras justo odio
-												</div>
-												<div class='col-sm-4'>
-														<a href='#'><span class='glyphicon glyphicon-minus'></span></a>&nbsp10&nbsp<a href='#'><span class='glyphicon glyphicon-plus'></span></a>
-												</div>
-										</li>
-										<li>
-												<div class='col-sm-8'>
-														<a href='#'><span class='fui-cross'>&nbsp</span></a>
-														Cras justo odio
-												</div>
-												<div class='col-sm-4'>
-														<a href='#'><span class='glyphicon glyphicon-minus'></span></a>&nbsp10&nbsp<a href='#'><span class='glyphicon glyphicon-plus'></span></a>
-												</div>
-										</li>
-										<li>
-												<div class='col-sm-8'>
-														<a href='#'><span class='fui-cross'>&nbsp</span></a>
-														Cras justo odio
-												</div>
-												<div class='col-sm-4'>
-														<a href='#'><span class='glyphicon glyphicon-minus'></span></a>&nbsp10&nbsp<a href='#'><span class='glyphicon glyphicon-plus'></span></a>
-												</div>
-										</li>
-										<li>
-												<div class='col-sm-8'>
-														<a href='#'><span class='fui-cross'>&nbsp</span></a>
-														Cras justo odio
-												</div>
-												<div class='col-sm-4'>
-														<a href='#'><span class='glyphicon glyphicon-minus'></span></a>&nbsp10&nbsp<a href='#'><span class='glyphicon glyphicon-plus'></span></a>
-												</div>
-										</li>
-								</ul>
-						</div>
-						<div class='clear-both'></div>
-						<div class='text-center'><a class='btn btn-success' href='#'>结算(78.00)</a></div>
 				</div>
 				<footer>
 						<div class='container'>

@@ -20,7 +20,7 @@ class Food extends Model
 			$result=DB::table('food')
 					->leftJoin('cookbook','food.cookbook','=','cookbook.id')
 					->leftJoin('bookdetail','cookbook.id','=','bookdetail.bookId')
-					->select('food.id as id','food.name as name','food.avatar as avatar','video','food.detail as detail','price','bookdetail.name as step','bookdetail.detail as bookdetail')
+					->select('food.top as top','food.id as id','food.name as name','food.avatar as avatar','video','food.detail as detail','price','bookdetail.name as step','bookdetail.detail as bookdetail')
 					->get();
 			return $result;
 	}
