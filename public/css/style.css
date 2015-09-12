@@ -2,6 +2,7 @@
  * main stylesheet
  * @author Tinty
  * @version 1.0
+ * @param #1abc9c
  */
 /**
  * whole
@@ -13,13 +14,16 @@
 body {
 		font-family:'microsoft YaHei';
 }
+ul {
+		list-style:none;
+}
 .clear-both {
 		clear:both;
 }
 /**
  * container-fluid col-sm-2
  */
-.container-fluid,.col-sm-2,.col-sm-4,.col-sm-10,.col-sm-1,.col-sm-11 {
+.container-fluid,.col-sm-2,.col-sm-4,.col-sm-10,.col-sm-1,.col-sm-11,.col-sm-8 {
 		padding:0;
 }
 /**
@@ -270,3 +274,44 @@ footer .container .charlie figure img {
 .single .col-md-3 {
 		margin-bottom:1%;
 }
+/**
+ * shopping cart
+ */
+.shopping-cart {
+		position:fixed;
+		top:0;
+		right:0;
+		width:0;
+		height:100%;
+		background:#000;
+		color:#fff;
+		z-index:1002;
+		transition:width .5s;
+}
+.shopping-cart .abel {
+		margin-top:30%;
+}
+body {
+		transition:margin .5s;
+}
+/**
+ * login register
+ */
+.login {
+		background:#1abc9c;
+		position:fixed;
+		top:0;
+		left:0;
+		height:100%;
+		width:100%;
+		z-index:1001;
+}
+.login-screen {
+		margin-top:10%;
+		background:none;
+}
+.login-form {
+		max-width:500px;
+}
+
+

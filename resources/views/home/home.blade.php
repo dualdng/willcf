@@ -5,13 +5,6 @@
 * @version 1.0
 */
 ?>
-<?php
-/**
- * Layout
- * @author Tinty
- * @version 1.0
- */
-?>
 <!DOCTYPE html>
 <html lang='zh-CN'>
 		<head>

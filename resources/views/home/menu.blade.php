@@ -32,8 +32,13 @@
 						<figure>
 								<img src='testpic/1.jpg' />
 								<figcaption>
+								<div class='col-sm-8'>
 								<span>红烧排骨</span>
-								<a id='add-cart' val='11' href='#'><span class='add-cart fui-plus' data-toggle='tooltip' data-placement='left' title='加入购物车'></span></a> <br />
+								</div>
+								<div class='col-sm-4 text-right'>
+										<a  href='#'><span class='fui-heart' data-toggle='tooltip' data-placement='left' title='收藏'></span></a>&nbsp
+										<a id='add-cart' val='11' href='#'><span class='add-cart fui-plus' data-toggle='tooltip' data-placement='left' title='加入购物车'></span></a>
+								</div>
 								<span class='description'>排骨：300克；糖：20克；酱油：50ml</span>
 								</figcaption>
 						</figure>
