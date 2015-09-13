@@ -20,9 +20,13 @@ ul {
 .clear-both {
 		clear:both;
 }
+.btn {
+		border-radius:0 !important;
+}
 /**
  * container-fluid col-sm-2
  */
+
 .container-fluid,.col-sm-2,.col-sm-4,.col-sm-10,.col-sm-1,.col-sm-11,.col-sm-8 {
 		padding:0;
 }
@@ -142,7 +146,7 @@ nav .container-fluid {
 		z-index:10;
 }
 .index .baker figure:hover img {
-		transform:translateY(-75px);
+		transform:translateY(-100px);
 		transition:transform .5s;
 		cursor:pointer;
 }
@@ -153,15 +157,15 @@ nav .container-fluid {
 		z-index:2;
 }
 .index .baker figcaption {
+		text-align:center;
 		width:100%;
 }
 .index .baker figcaption span {
-		float:left;
+}
+.index .baker figcaption a {
+		width:100%;
 }
 .index .baker figcaption .add-cart {
-		font-size:24px;
-		float:right;
-		line-height:20px;
 }
 .index .baker .col-sm-4 {
 		max-height:624px;
@@ -172,18 +176,23 @@ nav .container-fluid {
 		background-size:cover;
 		padding-bottom:2%;
 }
+.index .abel figure {
+}
 .index .abel img {
 		width:100%;
 		position:relative;
 }
 .index .abel figcaption {
 		color:#fff;
-		position:absolute;
 		bottom:15px;
 		background:#000;
 		opacity:.9;
 		margin-right:15px;
 		padding:2px;
+		width:100%;
+}
+.index .abel figcaption a {
+		width:100%;
 }
 .index .abel .col-sm-3 {
 		padding:15px 15px;
@@ -257,6 +266,15 @@ footer .container .charlie figure img {
 .menu figure img {
 		width:100%;
 		height:auto;
+}
+.menu figcaption .left {
+		background:#000;
+		opacity:.9;
+		height:40px;
+		color:#fff;
+}
+.menu figcaption .left .col-sm-8 span {
+		line-height:40px;
 }
 .menu .add-cart {
 		float:right;
@@ -335,5 +353,43 @@ body {
 .login-form {
 		max-width:500px;
 }
+/**
+ * account
+ */
+.account .abel {
+		margin-top:2%;
+}
+.account .abel figure {
+		overflow:hidden;
+}
+.account .abel figure a {
+		width:100%;
+}
+.account .abel figure img {
+		height:240px;
+		width:auto;
+}
+.account table {
+		text-align:center;
+}
+.account table tr td:first-child {
+		width:50px;
+}
+/**
+ * account detail
+ */
+.detail {
+		margin:2% 0;
+}
+.detail .abel .left figure {
+		width:300px;
+		overflow:hidden;
 
-
+}
+.detail .abel .right {
+		overflow:hidden;
+}
+.detail .abel .right figure img {
+		height:160px;
+		width:auto;
+}

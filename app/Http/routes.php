@@ -48,6 +48,15 @@ Route::get('nav','Home\MainController@getNav');
 
 Route::post('listLocation','Home\MainController@listLocation');
 /**
+ * dashboard
+ */
+Route::get('account/{id}','AccountController@getDashboard');
+/**
+ * dashborad
+ */
+
+Route::get('account/{id}/detail','AccountController@getDetail');
+/**
  *  background
  */
 Route::get('back','BackController@getBack');

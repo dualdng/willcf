@@ -32,13 +32,14 @@
 						<figure>
 						<img src='<?php echo $value->avatar;?>' />
 								<figcaption>
+<div class='left'>
 								<div class='col-sm-8'>
-								<span><?php echo $value->name;?></span>
+								<span>&nbsp<?php echo $value->name;?></span>
 								</div>
 								<div class='col-sm-4 text-right'>
-										<a  href='#'><span class='fui-heart' data-toggle='tooltip' data-placement='left' title='收藏'></span></a>&nbsp
-										<a id='add-cart' val='11' href='#'><span class='add-cart fui-plus' data-toggle='tooltip' data-placement='left' title='加入购物车'></span></a>
+										<a id='add-cart' class='btn btn-primary'  val='11' href='#'><span class='add-cart' data-toggle='tooltip' data-placement='left' title='加入购物车'>加入菜单</span></a>
 								</div>
+</div>
 								<span class='description'><?php echo $value->detail;?></span>
 								</figcaption>
 						</figure>
