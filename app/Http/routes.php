@@ -37,10 +37,16 @@ Route::post('setCartCookie','Home\MainController@setCartCookie');
  * checkout
  */
 Route::get('checkout','Home\MainController@getCheckout');
+Route::post('checkout','Home\MainController@postCheckout');
 /**
  * get navbar
  */
 Route::get('nav','Home\MainController@getNav');
+/**
+ * listlocation
+ */
+
+Route::post('listLocation','Home\MainController@listLocation');
 /**
  *  background
  */

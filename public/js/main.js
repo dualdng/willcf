@@ -59,6 +59,10 @@ $(document).ready(function(){
 						$('.shopping-cart').append(data);
 				}
 		})
+		/**
+		 * 地区选择
+		 */
+
 })
 /**
  * 购物车动画 右下角
@@ -94,18 +98,17 @@ $(document).on('click','#add-cart',function(){
 		var foodPrice=parseFloat($(this).attr('foodPrice'));
 		var foodAvatar=$(this).attr('foodAvatar');
 		var price=parseFloat($('#checkout span').text());
-		var d=new Date();
-		var cartId=d.getFullYear().toString()+d.getMonth().toString()+d.getDate().toString()+d.getHours().toString()+d.getMinutes().toString();
-		var userId=$('span#userId').text();
-		console.log(cartId);
 		var content='';
-		content+='<li id=\'food'+foodId+'\'>';
-		content+='<div class=\'col-sm-8\'>';
-		content+='<a href=\'javascript:deleteFood('+foodId+','+foodPrice+')\'><span class=\'fui-cross\'>&nbsp</span></a>';
+		content+='<li id=\'food'+foodId+'\' class=\'container-fluid\'>';
+		content+='<div class=\'col-sm-6\'>';
+		content+='<a href=\'javascript:deleteFood('+foodId+','+foodPrice+')\'><span class=\'fui-cross\'></span></a>';
 		content+=foodName;
-		content+='</div>';
-		content+='<div class=\'col-sm-4\'>';
+		content+='-</div>';
+		content+='<div class=\'col-sm-3\'>';
 		content+='<a href=\'javascript:removeFood('+foodId+','+foodPrice+')\'><span class=\'glyphicon glyphicon-minus\'></span></a>&nbsp<span id=\'foodAmount'+foodId+'\' >1</span>&nbsp<a href=\'javascript:addFood('+foodId+','+foodPrice+')\'><span class=\'glyphicon glyphicon-plus\'></span></a>';
+		content+='</div>';
+		content+='-<div class=\'col-sm-2\'>';
+		content+='<span id=\'price'+foodId+'\'>'+foodPrice+'</span>';
 		content+='</div>';
 		content+='</li>';
 		price=(foodPrice+price).toFixed(2);
@@ -140,36 +143,32 @@ function deleteFood(id,price){
 		setCartCookie();
 		return false;
 }
-/**
 function addFood(id,price){
 		var nowPrice=parseFloat($('#checkout span').text());
-		price=nowPrice+parseFloat(price);
 		var amount=parseFloat($('span#foodAmount'+id).text());
 		amount+=1;
-		console.log(amount);
+		var foodPrice=parseFloat($('span#price'+id).text());
 		$('span#foodAmount'+id).text(amount);
-		$('#checkout span').text(price.toFixed(2));
+		$('span#price'+id).text((foodPrice+parseFloat(price)).toFixed(2));
+		$('#checkout span').text((nowPrice+parseFloat(price)).toFixed(2));
 		setCartCookie();
 		return false;
 }
 function removeFood(id,price){
 		var nowPrice=parseFloat($('#checkout span').text());
-		console.log(id);
-		price=nowPrice-parseFloat(price);
-		console.log(nowPrice+'---'+price);
 		var amount=parseFloat($('span#foodAmount'+id).text());
 		amount-=1;
+		var foodPrice=parseFloat($('span#price'+id).text());
 		if(amount==0){
 				deleteFood(id,price);
 		}else{
 				$('span#foodAmount'+id).text(amount);
-				console.log('#food'+id);
+		$('span#price'+id).text((foodPrice-parseFloat(price)).toFixed(2));
+		$('#checkout span').text((nowPrice-parseFloat(price)).toFixed(2));
 		}
-		$('#checkout span').text(price.toFixed(2));
 		setCartCookie();
 		return false;
 }
-/**/
 /**
  * checkout
  */
@@ -177,17 +176,21 @@ function checkout()
 {
 		var price=parseFloat($('#checkout span').text()).toFixed(2);
 		var food='';
-		$('#shopping-cart li div').each(function(){
+		var foodId='';
+		$('#shopping-cart li').each(function(){
 				food+=','+$(this).text();
 		});
+		$('#shopping-cart li').each(function(){
+				foodId+=','+$(this).attr('id');
+		});
+		console.log(food);
+		console.log(foodId);
 		$.ajax({
 				url:'/checkout',
 				type:'GET',
-				data:{"food":food},
+				data:{"food":food,"foodId":foodId,"price":price},
 				success:function(data){
-						if(data!=1){
-								alert('error');
-						}
+						$('body').append(data);
 				}
 		})
 
@@ -255,7 +258,6 @@ $(window).scroll(function(){
  */
 function cart() {
 		var a=$('#cart').attr('value');
-		console.log(a);
 		if(a=='0') {
 				$('.shopping-cart').css({'width':'400px'});
 				$('#cart').attr('value','1');
