@@ -465,4 +465,78 @@ function bookdetail(id)
 		})
 		return false;
 }
+/**
+ * imgUpload/
+ */
+function imgUpload()
+{
+		var formData=new FormData;
+		formData.append('avatar',$('input[name=\'avatar\']')[0].files[0]);
+		var url=$('#avatarForm').attr('action');
+		$.ajax({
+				url:url,
+				type:'POST',
+				data:formData,
+				processData:false,/**重要**/
+				contentType:false,/**重要**/
+				success:function(data){
+						$('#avatar').attr('src',data).css({'width':'200px','height':'200px'});
+				}
+
+		})
+		return false;
+}
+/**
+ * emojiUpload
+ */
+function emojiUpload()
+{
+		var h=$('.chatContent')[0].scrollHeight;
+		var formData=new FormData;
+		formData.append('userId',$('input[name=\'id\']').val());
+		formData.append('name',$('input[name=\'name\']').val());
+		formData.append('avatar',$('input[name=\'avatar\']').val());
+		formData.append('emoji',$('input[name=\'emoji\']')[0].files[0]);
+		var url=$('#emoji').attr('action');
+		$('#emoji input[name=\'submit\']').val('上传中').addClass('disabled');
+		$.ajax({
+				url:url,
+				type:'POST',
+				data:formData,
+				processData:false,/**重要**/
+				contentType:false,/**重要**/
+				success:function(data){
+						$('#chatContent').append(data);
+						$('.chatContent').animate({scrollTop:h},1000);
+						$('#myModal').modal('hide');
+						$('#emoji input[name=\'submit\']').val('提交').removeClass('disabled');
+				}
+
+		})
+		return false;
+}
+/**
+ * albumImgUpload
+ */
+function albumImgUpload()
+{
+		var formData=new FormData;
+		formData.append('img',$('input[name=\'img\']')[0].files[0]);
+		formData.append('albumId',$('input[name=\'albumId\']').val());
+		var url=$('#newImg').attr('action');
+		$.ajax({
+				url:url,
+				type:'POST',
+				data:formData,
+				processData:false,/**重要**/
+				contentType:false,/**重要**/
+				success:function(data){
+						$('#abel').modal('hide');
+						$('#newImgArea').append(data);
+				}
+
+		})
+		return false;
+}
+
 
